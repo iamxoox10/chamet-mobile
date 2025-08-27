@@ -1,5 +1,5 @@
 name: chamet_mvp
-description: Minimal Flutter app to test real-time video via Jitsi (in-app browser) and prepare for Agora later.
+description: Minimal Flutter app to test real-time video via Jitsi
 publish_to: "none"
 version: 0.0.1+1
 
@@ -13,5 +13,3 @@ dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/
