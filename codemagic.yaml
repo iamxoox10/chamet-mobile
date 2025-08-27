@@ -4,13 +4,19 @@ workflows:
     environment:
       flutter: stable
     scripts:
-      - flutter create --platforms=android app
-      - rm -rf app/lib
-      - mkdir -p app/lib
-      - cp -r lib/* app/lib/
-      - cp pubspec.yaml app/pubspec.yaml
-      - cd app
-      - flutter pub get
-      - flutter build apk --debug
+      - name: Create fresh Flutter project
+        script: |
+          flutter create app
+      - name: Copy your code into project
+        script: |
+          rm -rf app/lib
+          mkdir -p app/lib
+          cp -r lib/* app/lib/
+          cp pubspec.yaml app/pubspec.yaml
+      - name: Build APK
+        script: |
+          cd app
+          flutter pub get
+          flutter build apk --debug
     artifacts:
       - app/build/app/outputs/flutter-apk/app-debug.apk
